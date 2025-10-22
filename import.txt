@@ -1,0 +1,50 @@
+Absen Pengunjung :
+Butuh Eksport Data Per Bulan /done
+Isi Data : Semi Manual Modal Isi NIS Dapet Data Semua /done
+
+Pimjem :
+Semi Manual Juga, buat id buku, kalo di klik ke detail buku
+Tengat, Kalo di klik dia ke data siswa
+
+pengembalian :
+rekap pertangggal /done
+tanggal tanggal filter bulan butuh tahun juga
+
+
+Dashbord :
+Diagram Absen:
+    perbulan
+    Mw 2 Perempuan Sama Laki /done
+Peminjaman Juga /done
+
+data siswa :
+bisa di telp, kalo tengat bisa di chat
+import /done
+
+data buku:
+import juga /done
+filter
+
+id campur /done
+nama /done
+kategori /done
+penerbit /done
+penulis /done
+
+roles:
+superadmin =kepala
+admin = 4 anggota
+user = 2
+
+logo di header
+
+login diubah
+warna biru /done
+
+select export
+
+data siswa : ttl ganti ke nomor telp
+
+ubah tanggal jadi hari/bulan/tahun
+
+

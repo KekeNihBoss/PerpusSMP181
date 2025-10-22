@@ -1,0 +1,162 @@
+/* ============================================
+   CUSTOM FILAMENT LOGIN PAGE STYLING
+   File: resources/css/filament/admin/theme.css
+   ============================================ */
+
+@import '/vendor/filament/filament/resources/css/theme.css';
+
+/* @config 'tailwind.config.js'; */
+
+/* Login Page Background - Dark & Clean */
+.fi-simple-layout {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    min-height: 100vh;
+}
+
+/* Login Card - Lebih Modern */
+.fi-simple-main {
+    background: #1a1a1a !important;
+    border: 1px solid #2a2a2a;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    border-radius: 1rem;
+}
+
+/* Brand Logo Container */
+.fi-simple-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.fi-logo {
+    filter: drop-shadow(0 4px 12px rgba(59, 130, 246, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.fi-logo:hover {
+    transform: scale(1.05);
+}
+
+/* Input Fields - Lebih Sleek */
+.fi-input {
+    background-color: #0a0a0a !important;
+    border: 1px solid #2a2a2a !important;
+    color: #f3f4f6 !important;
+    transition: all 0.3s ease;
+}
+
+.fi-input:focus {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+}
+
+.fi-input::placeholder {
+    color: #6b7280;
+}
+
+/* Labels */
+.fi-fo-field-wrp-label {
+    color: #d1d5db !important;
+    font-weight: 500;
+}
+
+/* Login Button - Primary Blue */
+.fi-btn-primary {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+    border: none !important;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.fi-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+}
+
+/* Remember Me Checkbox */
+.fi-checkbox {
+    accent-color: #3b82f6;
+}
+
+/* Link Colors */
+a.fi-link {
+    color: #60a5fa !important;
+    transition: color 0.2s ease;
+}
+
+a.fi-link:hover {
+    color: #93c5fd !important;
+}
+
+/* Error Messages */
+.fi-fo-field-wrp-error-message {
+    color: #fca5a5 !important;
+    font-size: 0.875rem;
+}
+
+/* Card Title - "Sign In" */
+.fi-simple-header h1 {
+    color: #f3f4f6;
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+/* Subtitle / Brand Name di bawah logo */
+.fi-simple-header p {
+    color: #9ca3af;
+    font-size: 0.875rem;
+}
+
+/* Loading State */
+.fi-btn-primary[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Password Toggle Icon */
+.fi-input-wrp button {
+    color: #9ca3af;
+    transition: color 0.2s ease;
+}
+
+.fi-input-wrp button:hover {
+    color: #f3f4f6;
+}
+
+/* Responsive - Mobile Optimization */
+@media (max-width: 640px) {
+    .fi-simple-main {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .fi-logo {
+        max-width: 120px;
+    }
+}
+
+/* Smooth Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fi-simple-main {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Footer Text (jika ada) */
+.fi-simple-footer {
+    text-align: center;
+    color: #6b7280;
+    font-size: 0.875rem;
+    margin-top: 2rem;
+}
