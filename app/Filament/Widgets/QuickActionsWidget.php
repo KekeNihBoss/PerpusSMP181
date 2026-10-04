@@ -55,6 +55,24 @@ class QuickActionsWidget extends Widget
                 'url' => \App\Filament\Resources\BookRecommendationResource::getUrl('index'),
                 'visible' => $user->can('view_any_book_recommendation') || $user->can('view_book_recommendation'),
             ],
+            [
+                'label' => 'Template Import Buku',
+                'description' => 'Unduh template Excel pengisian data buku',
+                'icon' => 'heroicon-o-arrow-down-tray',
+                'color' => 'danger',
+                'url' => route('templates.buku'),
+                'download' => true,
+                'visible' => $user->can('create_data::buku'),
+            ],
+            [
+                'label' => 'Template Import Siswa',
+                'description' => 'Unduh template Excel pengisian data siswa',
+                'icon' => 'heroicon-o-arrow-down-tray',
+                'color' => 'danger',
+                'url' => route('templates.siswa'),
+                'download' => true,
+                'visible' => $user->can('create_data::siswa'),
+            ],
         ];
     }
 }

@@ -10,24 +10,22 @@ class PengembalianExport implements FromCollection, WithHeadings
 {
     protected $bulan;
     protected $tahun;
-    protected $tanggal;
 
-    public function __construct($bulan = null, $tahun = null, $tanggal = null)
+    public function __construct($bulan = null, $tahun = null)
     {
         $this->bulan = $bulan;
         $this->tahun = $tahun;
-        $this->tanggal = $tanggal;
     }
 
     public function collection()
     {
         $query = Pengembalian::query();
 
-        if ($this->tanggal) {
-            $query->whereDate('tanggal_kembali', $this->tanggal);
-        } elseif ($this->bulan && $this->tahun) {
+        if ($this->bulan && $this->tahun) {
             $query->whereMonth('tanggal_kembali', $this->bulan)
                   ->whereYear('tanggal_kembali', $this->tahun);
+        } elseif ($this->tahun) {
+            $query->whereYear('tanggal_kembali', $this->tahun);
         }
 
         return $query->get([

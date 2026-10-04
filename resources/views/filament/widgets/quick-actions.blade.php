@@ -21,6 +21,7 @@
 
                     <a
                         href="{{ $action['url'] }}"
+                        @if(!empty($action['download'])) download @endif
                         class="group flex flex-col justify-between rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-primary-300 hover:shadow-md dark:border-gray-700 dark:bg-gray-900 dark:hover:border-primary-600"
                     >
                         <div class="flex items-start justify-between">

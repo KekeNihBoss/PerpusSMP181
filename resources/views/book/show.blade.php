@@ -1,38 +1,41 @@
 @extends('layouts.app')
 
+@section('title', $buku->judul)
+
 @section('content')
-<section class="py-16 bg-gray-50">
+<section class="py-12 lg:py-16">
     <div class="container mx-auto px-4">
-        
+
         {{-- BREADCRUMB --}}
-        <nav class="mb-8">
-            <ol class="flex items-center space-x-2 text-sm text-gray-600">
-                <li><a href="{{ route('home') }}" class="hover:text-blue-600">Beranda</a></li>
-                <li><i class="fas fa-chevron-right text-xs"></i></li>
-                <li><a href="#books" class="hover:text-blue-600">Buku</a></li>
-                <li><i class="fas fa-chevron-right text-xs"></i></li>
-                <li class="text-gray-800 font-semibold truncate">{{ $buku->judul }}</li>
+        <nav class="reveal mb-8">
+            <ol class="flex items-center space-x-2 text-sm text-navy-600/60">
+                <li><a href="{{ route('home') }}" class="hover:text-sky2-600 transition">Beranda</a></li>
+                <li><i class="fas fa-chevron-right text-[10px]"></i></li>
+                <li><a href="{{ route('buku.index') }}" class="hover:text-sky2-600 transition">Katalog Buku</a></li>
+                <li><i class="fas fa-chevron-right text-[10px]"></i></li>
+                <li class="text-navy-900 font-semibold truncate max-w-[200px] md:max-w-md">{{ $buku->judul }}</li>
             </ol>
         </nav>
 
         <div class="max-w-6xl mx-auto">
-            
+
             {{-- MAIN CARD --}}
-            <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-12">
+            <div class="reveal bg-white rounded-2xl border border-cream-200 shadow-xl shadow-navy-900/5 overflow-hidden mb-12">
                 <div class="grid grid-cols-1 md:grid-cols-5 gap-0">
-                    
+
                     {{-- COVER --}}
-                    <div class="md:col-span-2 bg-gradient-to-br from-gray-100 to-gray-200 p-8 flex items-center justify-center">
-                        <div class="w-full max-w-sm">
+                    <div class="md:col-span-2 bg-navy-900 p-8 lg:p-10 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-[0.07]" aria-hidden="true"></div>
+                        <div class="w-full max-w-xs relative">
 
                             @if($buku->cover)
                                 <img src="{{ asset('storage/' . $buku->cover) }}"
                                      alt="{{ $buku->judul }}"
-                                     class="w-full h-auto rounded-lg shadow-2xl">
+                                     class="w-full h-auto rounded-xl shadow-2xl ring-1 ring-white/10">
                             @else
-                                <div class="bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg shadow-2xl flex items-center justify-center"
-                                     style="aspect-ratio: 9/16;">
-                                    <i class="fas fa-book text-white text-8xl"></i>
+                                <div class="bg-gradient-to-br from-navy-700 to-navy-950 rounded-xl shadow-2xl ring-1 ring-white/10 flex items-center justify-center"
+                                     style="aspect-ratio: 2/3;">
+                                    <i class="fas fa-book text-sky2-400/60 text-7xl"></i>
                                 </div>
                             @endif
 
@@ -41,66 +44,75 @@
 
                     {{-- DETAIL BUKU --}}
                     <div class="md:col-span-3 p-8 md:p-10">
-                        
-                        {{-- BADGE KATEGORI --}}
+
                         <div class="mb-4">
-                            <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">
+                            <span class="bg-sky2-50 border border-sky2-100 text-sky2-700 px-3 py-1 rounded-full text-sm font-semibold">
                                 {{ $buku->kategori }}
                             </span>
                         </div>
 
-                        {{-- JUDUL --}}
-                        <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-3">
+                        <h1 class="font-display text-3xl md:text-4xl font-semibold text-navy-900 mb-3 leading-tight">
                             {{ $buku->judul }}
                         </h1>
 
-                        {{-- PENULIS --}}
-                        <p class="text-xl text-gray-600 mb-4">
-                            <i class="fas fa-user-edit mr-2"></i>{{ $buku->penulis }}
+                        <p class="text-lg text-navy-600/70 mb-6">
+                            <i class="fas fa-user-edit text-sky2-600 mr-2"></i>{{ $buku->penulis }}
                         </p>
 
-                        <hr class="my-6">
-
                         {{-- DETAIL INFO --}}
-                        <div class="space-y-3 text-gray-700">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 mb-8">
 
-                            <div class="flex">
-                                <span class="w-40 font-semibold">Kategori:</span>
-                                <span>{{ $buku->kategori }}</span>
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-lg bg-sky2-50 text-sky2-600 flex items-center justify-center text-sm flex-shrink-0"><i class="fas fa-tag"></i></div>
+                                <div>
+                                    <p class="text-[11px] uppercase tracking-wider text-navy-600/50 font-semibold">Kategori</p>
+                                    <p class="text-sm font-semibold text-navy-900">{{ $buku->kategori }}</p>
+                                </div>
                             </div>
 
-                            <div class="flex">
-                                <span class="w-40 font-semibold">Penerbit:</span>
-                                <span>{{ $buku->penerbit }}</span>
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-lg bg-sky2-50 text-sky2-600 flex items-center justify-center text-sm flex-shrink-0"><i class="fas fa-building"></i></div>
+                                <div>
+                                    <p class="text-[11px] uppercase tracking-wider text-navy-600/50 font-semibold">Penerbit</p>
+                                    <p class="text-sm font-semibold text-navy-900">{{ $buku->penerbit }}</p>
+                                </div>
                             </div>
 
-                            <div class="flex">
-                                <span class="w-40 font-semibold">Nomor Rak:</span>
-                                <span>{{ $buku->nomorrak }}</span>
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-lg bg-sky2-50 text-sky2-600 flex items-center justify-center text-sm flex-shrink-0"><i class="fas fa-map-marker-alt"></i></div>
+                                <div>
+                                    <p class="text-[11px] uppercase tracking-wider text-navy-600/50 font-semibold">Nomor Rak</p>
+                                    <p class="text-sm font-semibold text-navy-900">{{ $buku->nomorrak }}</p>
+                                </div>
                             </div>
 
-                            <div class="flex">
-                                <span class="w-40 font-semibold">Tahun Pembelian:</span>
-                                <span>{{ $buku->tahunpembelian }}</span>
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-lg bg-sky2-50 text-sky2-600 flex items-center justify-center text-sm flex-shrink-0"><i class="fas fa-calendar"></i></div>
+                                <div>
+                                    <p class="text-[11px] uppercase tracking-wider text-navy-600/50 font-semibold">Tahun Pembelian</p>
+                                    <p class="text-sm font-semibold text-navy-900">{{ $buku->tahunpembelian }}</p>
+                                </div>
                             </div>
 
-                            <div class="flex">
-                                <span class="w-40 font-semibold">Stok Buku:</span>
-                                <span>{{ $buku->stokbuku }}</span>
+                            <div class="flex items-center gap-3 sm:col-span-2">
+                                <div class="w-9 h-9 rounded-lg bg-sky2-50 text-sky2-600 flex items-center justify-center text-sm flex-shrink-0"><i class="fas fa-cubes"></i></div>
+                                <div>
+                                    <p class="text-[11px] uppercase tracking-wider text-navy-600/50 font-semibold">Stok Tersedia</p>
+                                    <p class="text-sm font-semibold text-navy-900">{{ $buku->stokbuku }} eksemplar</p>
+                                </div>
                             </div>
 
                         </div>
 
-                        <hr class="my-6">
-
                         {{-- ACTION BUTTONS --}}
-                        <div class="flex space-x-4">
-                            <button class="bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-semibold transition flex items-center">
-                                <i class="fas fa-heart mr-2"></i>Tambah ke Favorit
+                        <div class="flex flex-wrap gap-3 pt-6 border-t border-cream-200">
+                            <button class="bg-navy-900 text-white px-6 py-3 rounded-xl font-semibold hover:bg-navy-700 transition flex items-center">
+                                <i class="fas fa-heart mr-2 text-sky2-400"></i>Tambah ke Favorit
                             </button>
-                            
-                            <button class="bg-white border-2 border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-3 rounded-lg font-semibold transition flex items-center">
-                                <i class="fas fa-share-alt mr-2"></i>Bagikan
+
+                            <button onclick="navigator.share ? navigator.share({title: '{{ $buku->judul }}'}) : navigator.clipboard.writeText(window.location.href).then(() => alert('Link berhasil disalin!'))"
+                                    class="bg-white border-2 border-cream-200 text-navy-900 hover:border-sky2-400 px-6 py-3 rounded-xl font-semibold transition flex items-center">
+                                <i class="fas fa-share-alt mr-2 text-sky2-600"></i>Bagikan
                             </button>
                         </div>
 
@@ -111,21 +123,21 @@
 
             {{-- DESKRIPSI --}}
             @if($buku->deskripsi)
-                <div class="bg-white rounded-xl shadow-lg p-8 mb-12">
-                    <h2 class="text-2xl font-bold text-gray-800 mb-4">
-                        <i class="fas fa-book-open text-blue-600 mr-2"></i>Deskripsi
+                <div class="reveal bg-white rounded-2xl border border-cream-200 shadow-lg shadow-navy-900/5 p-8 lg:p-10 mb-12">
+                    <h2 class="font-display text-2xl font-semibold text-navy-900 mb-4">
+                        <i class="fas fa-book-open text-sky2-600 mr-2"></i>Deskripsi
                     </h2>
-                    <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                    <div class="text-navy-900/80 leading-relaxed">
                         {!! nl2br(e($buku->deskripsi)) !!}
                     </div>
                 </div>
             @endif
 
             {{-- BACK BUTTON --}}
-            <div class="text-center mt-12">
-                <a href="{{ route('home') }}#books" 
-                   class="inline-block bg-gray-200 hover:bg-gray-300 text-gray-800 px-8 py-3 rounded-lg font-semibold transition">
-                    <i class="fas fa-arrow-left mr-2"></i>Kembali ke Beranda
+            <div class="text-center">
+                <a href="{{ route('buku.index') }}"
+                   class="inline-flex items-center gap-2 bg-white border-2 border-cream-200 hover:border-sky2-400 text-navy-900 px-8 py-3 rounded-xl font-semibold transition">
+                    <i class="fas fa-arrow-left"></i>Kembali ke Katalog
                 </a>
             </div>
 

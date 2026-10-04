@@ -13,15 +13,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::firstOrCreate(
-            ['email' => 'test@example.com'],
-            [
-                'name' => 'Test User',
-                'password' => bcrypt('password'),
-            ]
-        );
+        // User test dihapus demi keamanan (password default bisa dieksploitasi).
+        // Buat admin baru via SuperAdminSeeder saja.
 
         $this->call([
             RoleSeeder::class,

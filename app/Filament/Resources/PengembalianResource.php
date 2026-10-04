@@ -197,26 +197,6 @@ class PengembalianResource extends Resource
             ])
             
             ->headerActions([
-                Action::make('exportPerTanggal')
-                    ->label('Per Tanggal')
-                    ->icon('heroicon-o-calendar')
-                    ->color('info')
-                    ->form([
-                        Forms\Components\DatePicker::make('tanggal')
-                            ->label('Pilih Tanggal')
-                            ->prefixIcon('heroicon-o-calendar')
-                            ->default(now()->format('Y-m-d'))
-                            ->required(),
-                    ])
-                    ->action(function (array $data) {
-                        $tanggal = $data['tanggal'];
-
-                        return \Maatwebsite\Excel\Facades\Excel::download(
-                            new \App\Exports\PengembalianExport(null, null, $tanggal),
-                            "pengembalian-{$tanggal}.xlsx"
-                        );
-                    }),
-
                 Action::make('exportPerBulan')
                     ->label('Per Bulan')
                     ->icon('heroicon-o-calendar-days')
@@ -247,18 +227,25 @@ class PengembalianResource extends Resource
                         );
                     }),
 
-                Action::make('exportSemua')
-                    ->label('Semua')
-                    ->icon('heroicon-o-document-arrow-down')
-                    ->color('success')
-                    ->requiresConfirmation()
-                    ->modalHeading('Export Semua Data')
-                    ->modalSubheading('Data sangat besar, apakah Anda yakin ingin mengekspor semuanya?')
-                    ->modalButton('Ya, Export')
-                    ->action(function () {
+                Action::make('exportPerTahun')
+                    ->label('Per Tahun')
+                    ->icon('heroicon-o-calendar')
+                    ->color('info')
+                    ->form([
+                        Forms\Components\TextInput::make('tahun')
+                            ->label('Tahun')
+                            ->numeric()
+                            ->minValue(2000)
+                            ->maxValue(2100)
+                            ->default(date('Y'))
+                            ->required(),
+                    ])
+                    ->action(function (array $data) {
+                        $tahun = $data['tahun'];
+
                         return \Maatwebsite\Excel\Facades\Excel::download(
-                            new \App\Exports\PengembalianExport(),
-                            "pengembalian-semua.xlsx"
+                            new \App\Exports\PengembalianExport(null, $tahun),
+                            "pengembalian-{$tahun}.xlsx"
                         );
                     }),
             ]);

@@ -22,12 +22,12 @@ class HomeController extends Controller
                        ->latest()
                        ->take(6)
                        ->get();
-        
+
         $bookRecommendations = BookRecommendation::where('is_active', true)
                                                  ->latest()
                                                  ->take(8)
                                                  ->get();
-        
+
         $principal = Principal::where('is_active', true)->first();
 
         // ========================================
@@ -42,97 +42,15 @@ class HomeController extends Controller
         // ========================================
         // FILTER GRAFIK (Default: 7 hari)
         // ========================================
-        $chartFilter = $request->get('chart_filter', '7days');
-        
-        if ($chartFilter === 'month') {
-            // Data 30 hari terakhir
-            $days = 30;
-            $last30Days = collect();
-            for ($i = 29; $i >= 0; $i--) {
-                $last30Days->push(Carbon::now()->subDays($i)->format('Y-m-d'));
-            }
-            
-            // Absensi
-            $absensiData = Absen::select(
-                    DB::raw('DATE(created_at) as date'),
-                    DB::raw('COUNT(*) as total')
-                )
-                ->where('created_at', '>=', Carbon::now()->subDays(29)->startOfDay())
-                ->groupBy('date')
-                ->orderBy('date', 'asc')
-                ->pluck('total', 'date');
+        $chartFilter = $request->get('chart_filter', '7days') === 'month' ? 'month' : '7days';
+        $days = $chartFilter === 'month' ? 30 : 7;
 
-            $absensiLabels = $last30Days->map(function($date) {
-                return Carbon::parse($date)->format('d M');
-            });
-            
-            $absensiValues = $last30Days->map(function($date) use ($absensiData) {
-                return $absensiData->get($date, 0);
-            });
-
-            // Pengembalian
-            $pengembalianData = Peminjaman::select(
-                    DB::raw('DATE(updated_at) as date'),
-                    DB::raw('COUNT(*) as total')
-                )
-                ->where('status', 'dikembalikan')
-                ->where('updated_at', '>=', Carbon::now()->subDays(29)->startOfDay())
-                ->groupBy('date')
-                ->orderBy('date', 'asc')
-                ->pluck('total', 'date');
-
-            $pengembalianLabels = $last30Days->map(function($date) {
-                return Carbon::parse($date)->format('d M');
-            });
-            
-            $pengembalianValues = $last30Days->map(function($date) use ($pengembalianData) {
-                return $pengembalianData->get($date, 0);
-            });
-            
-        } else {
-            // Data 7 hari terakhir (default)
-            $last7Days = collect();
-            for ($i = 6; $i >= 0; $i--) {
-                $last7Days->push(Carbon::now()->subDays($i)->format('Y-m-d'));
-            }
-            
-            // Absensi
-            $absensiData = Absen::select(
-                    DB::raw('DATE(created_at) as date'),
-                    DB::raw('COUNT(*) as total')
-                )
-                ->where('created_at', '>=', Carbon::now()->subDays(6)->startOfDay())
-                ->groupBy('date')
-                ->orderBy('date', 'asc')
-                ->pluck('total', 'date');
-
-            $absensiLabels = $last7Days->map(function($date) {
-                return Carbon::parse($date)->format('d M');
-            });
-            
-            $absensiValues = $last7Days->map(function($date) use ($absensiData) {
-                return $absensiData->get($date, 0);
-            });
-
-            // Pengembalian
-            $pengembalianData = Peminjaman::select(
-                    DB::raw('DATE(updated_at) as date'),
-                    DB::raw('COUNT(*) as total')
-                )
-                ->where('status', 'dikembalikan')
-                ->where('updated_at', '>=', Carbon::now()->subDays(6)->startOfDay())
-                ->groupBy('date')
-                ->orderBy('date', 'asc')
-                ->pluck('total', 'date');
-
-            $pengembalianLabels = $last7Days->map(function($date) {
-                return Carbon::parse($date)->format('d M');
-            });
-            
-            $pengembalianValues = $last7Days->map(function($date) use ($pengembalianData) {
-                return $pengembalianData->get($date, 0);
-            });
-        }
+        [$absensiLabels, $absensiValues] = $this->dailyCounts(
+            (new Absen())->getTable(), 'created_at', $days
+        );
+        [$pengembalianLabels, $pengembalianValues] = $this->dailyCounts(
+            (new Peminjaman())->getTable(), 'updated_at', $days, ['status' => 'dikembalikan']
+        );
 
         return view('home', compact(
             'events',
@@ -149,5 +67,51 @@ class HomeController extends Controller
             'pengembalianValues',
             'chartFilter'
         ));
+    }
+
+    /**
+     * Data grafik untuk AJAX (tanpa reload halaman).
+     */
+    public function chartData(Request $request)
+    {
+        $filter = $request->get('filter', '7days') === 'month' ? 'month' : '7days';
+        $days = $filter === 'month' ? 30 : 7;
+
+        [$absensiLabels, $absensiValues] = $this->dailyCounts(
+            (new Absen())->getTable(), 'created_at', $days
+        );
+        [$pengembalianLabels, $pengembalianValues] = $this->dailyCounts(
+            (new Peminjaman())->getTable(), 'updated_at', $days, ['status' => 'dikembalikan']
+        );
+
+        return response()->json([
+            'filter'       => $filter,
+            'absensi'      => ['labels' => $absensiLabels, 'values' => $absensiValues],
+            'pengembalian' => ['labels' => $pengembalianLabels, 'values' => $pengembalianValues],
+        ]);
+    }
+
+    /**
+     * Hitung jumlah record per hari selama N hari terakhir (termasuk hari ini),
+     * label tanggal tanpa data diisi 0.
+     */
+    private function dailyCounts(string $table, string $column, int $days, array $where = []): array
+    {
+        $rows = DB::table($table)
+            ->selectRaw("DATE({$column}) as date, COUNT(*) as total")
+            ->where($column, '>=', Carbon::now()->subDays($days - 1)->startOfDay())
+            ->when($where, fn ($q) => $q->where($where))
+            ->groupBy('date')
+            ->pluck('total', 'date');
+
+        $labels = collect();
+        $values = collect();
+        for ($i = $days - 1; $i >= 0; $i--) {
+            $date = Carbon::now()->subDays($i)->format('Y-m-d');
+            $labels->push(Carbon::parse($date)->format('d M'));
+            $values->push((int) $rows->get($date, 0));
+        }
+
+        return [$labels, $values];
     }
 }

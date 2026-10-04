@@ -1,64 +1,63 @@
 @extends('layouts.app')
+
+@section('title', 'Tata Tertib')
+
 @section('content')
-    {{-- HERO SECTION --}}
-<section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20 pt-24">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Tata Tertib Perpustakaan</h1>
-            <p class="text-xl text-orange-100">SMP Negeri 181 Jakarta</p>
+<section class="py-12 lg:py-16">
+    <div class="container mx-auto px-4">
+
+        {{-- HEADER --}}
+        <div class="reveal max-w-2xl mx-auto text-center mb-12">
+            <p class="text-sky2-600 font-semibold tracking-[0.25em] uppercase text-xs mb-3">Tentang Kami</p>
+            <h1 class="font-display text-3xl md:text-4xl font-semibold text-navy-900 mb-4">Tata Tertib Perpustakaan</h1>
+            <p class="text-navy-600/70 leading-relaxed">Aturan yang menjaga kenyamanan bersama di Savansa Library.</p>
         </div>
-    </section>
 
-    {{-- CONTENT --}}
-    <section class="py-16">
-        <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
             @if($tataTertib)
-                <div class="max-w-4xl mx-auto">
-                    
-                    {{-- TITLE & DESCRIPTION --}}
-                    <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
-                        <h2 class="text-3xl font-bold text-gray-800 mb-4">{{ $tataTertib->title }}</h2>
-                        @if($tataTertib->description)
-                            <p class="text-gray-600 leading-relaxed">{{ $tataTertib->description }}</p>
-                        @endif
+                {{-- TITLE & DESCRIPTION --}}
+                <div class="reveal bg-white rounded-2xl border border-cream-200 shadow-lg shadow-navy-900/5 p-8 lg:p-10 mb-8">
+                    <h2 class="font-display text-2xl md:text-3xl font-semibold text-navy-900 mb-4">{{ $tataTertib->title }}</h2>
+                    @if($tataTertib->description)
+                        <p class="text-navy-900/75 leading-relaxed">{{ $tataTertib->description }}</p>
+                    @endif
+                </div>
+
+                {{-- PDF VIEWER --}}
+                <div class="reveal bg-white rounded-2xl border border-cream-200 shadow-lg shadow-navy-900/5 p-8 lg:p-10">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                        <h3 class="font-display text-xl font-semibold text-navy-900">
+                            <i class="fas fa-file-pdf text-sky2-600 mr-2"></i>Dokumen Tata Tertib
+                        </h3>
+                        <a href="{{ $tataTertib->pdf_url }}" target="_blank" rel="noopener"
+                           class="inline-flex items-center justify-center bg-navy-900 text-white px-6 py-2.5 rounded-xl font-semibold hover:bg-navy-700 transition">
+                            <i class="fas fa-download mr-2 text-sky2-400"></i>Download PDF
+                        </a>
                     </div>
 
-                    {{-- PDF VIEWER --}}
-                    <div class="bg-white rounded-xl shadow-lg p-8">
-                        <div class="flex items-center justify-between mb-6">
-                            <h3 class="text-xl font-bold text-gray-800">
-                                <i class="fas fa-file-pdf text-red-600 mr-2"></i>
-                                Dokumen Tata Tertib
-                            </h3>
-                            <a href="{{ $tataTertib->pdf_url }}" target="_blank" 
-                               class="bg-orange-600 hover:bg-orange-700 text-white px-6 py-2 rounded-lg font-semibold transition">
-                                <i class="fas fa-download mr-2"></i>Download PDF
-                            </a>
-                        </div>
-
-                        {{-- EMBED PDF --}}
-                        <div class="border-2 border-gray-200 rounded-lg overflow-hidden" style="height: 800px;">
-                            <iframe src="{{ $tataTertib->pdf_url }}" 
-                                    width="100%" 
-                                    height="100%" 
-                                    style="border: none;">
-                                <p>Browser Anda tidak mendukung PDF viewer. 
-                                   <a href="{{ $tataTertib->pdf_url }}" class="text-blue-600 underline">Download PDF</a>
-                                </p>
-                            </iframe>
-                        </div>
+                    {{-- EMBED PDF --}}
+                    <div class="border border-cream-200 rounded-xl overflow-hidden" style="height: 800px;">
+                        <iframe src="{{ $tataTertib->pdf_url }}"
+                                width="100%"
+                                height="100%"
+                                style="border: none;" title="Dokumen Tata Tertib">
+                            <p>Browser Anda tidak mendukung PDF viewer.
+                               <a href="{{ $tataTertib->pdf_url }}" class="text-sky2-600 underline">Download PDF</a>
+                            </p>
+                        </iframe>
                     </div>
-
                 </div>
             @else
                 {{-- NO DATA --}}
-                <div class="max-w-2xl mx-auto text-center">
-                    <div class="bg-white rounded-xl shadow-lg p-12">
-                        <i class="fas fa-clipboard-list text-gray-300 text-6xl mb-4"></i>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Belum Ada Data</h3>
-                        <p class="text-gray-600">Dokumen Tata Tertib belum tersedia.</p>
+                <div class="reveal max-w-md mx-auto text-center bg-white border border-cream-200 rounded-2xl p-12">
+                    <div class="w-16 h-16 rounded-2xl bg-sky2-50 text-sky2-600 flex items-center justify-center text-2xl mx-auto mb-5">
+                        <i class="fas fa-clipboard-list"></i>
                     </div>
+                    <h3 class="font-display text-xl font-semibold text-navy-900 mb-2">Belum Ada Data</h3>
+                    <p class="text-navy-600/60 text-sm">Dokumen Tata Tertib belum tersedia.</p>
                 </div>
             @endif
         </div>
-    </section>
+    </div>
+</section>
 @endsection
