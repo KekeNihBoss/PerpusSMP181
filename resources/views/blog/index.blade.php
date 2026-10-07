@@ -41,7 +41,7 @@
                                  class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         @else
                             <div class="w-full h-full bg-navy-900 flex items-center justify-center">
-                                <i class="fas fa-image text-sky2-400/50 text-5xl"></i>
+                                <i class="ph ph-image text-sky2-400/50 text-5xl"></i>
                             </div>
                         @endif
 
@@ -57,11 +57,11 @@
                     <div class="p-6">
                         {{-- META --}}
                         <div class="flex items-center flex-wrap text-navy-600/50 text-xs font-medium mb-3 gap-x-3 gap-y-1">
-                            <span><i class="far fa-calendar mr-1.5 text-sky2-600"></i>{{ $event->event_date->format('d M Y') }}</span>
+                            <span><i class="ph ph-calendar-blank mr-1.5 text-sky2-600"></i>{{ $event->event_date->format('d M Y') }}</span>
                             @if($event->author)
-                                <span><i class="far fa-user mr-1.5 text-sky2-600"></i>{{ $event->author }}</span>
+                                <span><i class="ph ph-user mr-1.5 text-sky2-600"></i>{{ $event->author }}</span>
                             @endif
-                            <span><i class="far fa-eye mr-1.5 text-sky2-600"></i>{{ $event->views }} views</span>
+                            <span><i class="ph ph-eye mr-1.5 text-sky2-600"></i>{{ $event->views }} views</span>
                         </div>
 
                         {{-- TITLE --}}
@@ -78,7 +78,7 @@
                         <a href="{{ route('blog.show', $event->slug) }}"
                            class="inline-flex items-center gap-2 text-sm font-bold text-navy-900 hover:text-sky2-600 transition">
                             Baca selengkapnya
-                            <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                            <i class="ph ph-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
                         </a>
                     </div>
 
@@ -94,7 +94,7 @@
             {{-- EMPTY STATE --}}
             <div class="reveal max-w-md mx-auto text-center bg-white border border-cream-200 rounded-2xl p-12">
                 <div class="w-16 h-16 rounded-2xl bg-sky2-50 text-sky2-600 flex items-center justify-center text-2xl mx-auto mb-5">
-                    <i class="fas fa-inbox"></i>
+                    <i class="ph ph-tray"></i>
                 </div>
                 <h3 class="font-display text-xl font-semibold text-navy-900 mb-2">Belum Ada Konten</h3>
                 <p class="text-navy-600/60 text-sm">{{ request('category') ? 'Tidak ada konten di kategori ini.' : 'Belum ada event atau berita.' }}</p>

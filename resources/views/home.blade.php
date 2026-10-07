@@ -26,17 +26,17 @@
                         SMP Negeri 181 Jakarta
                     </p>
                     <h1 class="font-display text-5xl md:text-7xl font-semibold text-white mb-6 leading-tight">
-                        Savansa <span class="italic text-sky2-400">Library</span>
+                        Savansa <span class="text-sky2-400">Library</span>
                     </h1>
                     <p class="text-lg md:text-2xl text-cream-100/90 mb-10 leading-relaxed max-w-xl">
                         Jendela ilmu dan ruang baca bagi generasi muda — jelajahi koleksi, ikuti kegiatan, dan tumbuhkan budaya literasi bersama.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="#books" class="inline-flex items-center justify-center gap-2 bg-sky2-500 hover:bg-sky2-400 text-navy-900 px-8 py-3.5 rounded-xl font-bold text-base transition transform hover:scale-105 shadow-xl shadow-sky2-500/25">
-                            <i class="fas fa-book-open"></i> Jelajahi Koleksi
+                            <i class="ph ph-book-open"></i> Jelajahi Koleksi
                         </a>
                         <a href="#events" class="inline-flex items-center justify-center gap-2 border-2 border-white/60 hover:border-sky2-400 hover:text-sky2-400 text-white px-8 py-3.5 rounded-xl font-bold text-base transition transform hover:scale-105">
-                            <i class="fas fa-calendar"></i> Event &amp; Berita
+                            <i class="ph ph-calendar-blank"></i> Event &amp; Berita
                         </a>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
 
         <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce lg:hidden">
             <a href="#statistics" class="text-white/80 hover:text-sky2-400">
-                <i class="fas fa-chevron-down text-2xl"></i>
+                <i class="ph ph-caret-down text-2xl"></i>
             </a>
         </div>
     </section>
@@ -62,7 +62,7 @@
                 <div class="p-6 lg:p-8">
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 rounded-xl bg-sky2-50 text-sky2-600 flex items-center justify-center text-xl flex-shrink-0">
-                            <i class="fas fa-book"></i>
+                            <i class="ph ph-book"></i>
                         </div>
                         <div>
                             <p class="text-3xl lg:text-4xl font-display font-semibold text-navy-900">{{ number_format($totalBooks ?? 0) }}</p>
@@ -74,7 +74,7 @@
                 <div class="p-6 lg:p-8">
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 rounded-xl bg-sky2-50 text-sky2-600 flex items-center justify-center text-xl flex-shrink-0">
-                            <i class="fas fa-users"></i>
+                            <i class="ph ph-users"></i>
                         </div>
                         <div>
                             <p class="text-3xl lg:text-4xl font-display font-semibold text-navy-900">{{ number_format($totalMembers ?? 0) }}</p>
@@ -86,7 +86,7 @@
                 <div class="p-6 lg:p-8">
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 rounded-xl bg-sky2-50 text-sky2-600 flex items-center justify-center text-xl flex-shrink-0">
-                            <i class="fas fa-book-reader"></i>
+                            <i class="ph ph-student"></i>
                         </div>
                         <div>
                             <p class="text-3xl lg:text-4xl font-display font-semibold text-navy-900">{{ number_format($activeBorrowings ?? 0) }}</p>
@@ -98,7 +98,7 @@
                 <div class="p-6 lg:p-8">
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 rounded-xl bg-sky2-50 text-sky2-600 flex items-center justify-center text-xl flex-shrink-0">
-                            <i class="fas fa-user-check"></i>
+                            <i class="ph ph-user-check"></i>
                         </div>
                         <div>
                             <p class="text-3xl lg:text-4xl font-display font-semibold text-navy-900">{{ number_format($todayAbsences ?? 0) }}</p>
@@ -125,36 +125,36 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
                 <div class="reveal group relative bg-white rounded-2xl border border-cream-200 p-8 hover:border-sky2-400/60 hover:shadow-xl hover:shadow-navy-900/5 transition">
-                    <span class="absolute top-6 right-7 font-display text-4xl font-semibold text-cream-200 group-hover:text-sky2-100 transition-colors">01</span>
-                    <div class="w-14 h-14 rounded-xl bg-navy-900 text-sky2-400 flex items-center justify-center text-2xl mb-6">
-                        <i class="fas fa-book-bookmark"></i>
+                    <span class="absolute top-6 right-7 font-display text-4xl font-semibold text-cream-200 group-hover:text-sky2-400 transition-colors">01</span>
+                    <div class="w-14 h-14 rounded-xl bg-navy-900 text-white flex items-center justify-center text-2xl mb-6 group-hover:text-sky2-400 transition-colors">
+                        <i class="ph ph-book-bookmark"></i>
                     </div>
                     <h3 class="font-display text-xl font-semibold text-navy-900 mb-3">Koleksi Lengkap</h3>
                     <p class="text-sm text-navy-600/70 leading-relaxed">Ratusan judul buku pelajaran, fiksi, dan referensi yang terus bertambah setiap tahun ajaran.</p>
                 </div>
 
                 <div class="reveal group relative bg-white rounded-2xl border border-cream-200 p-8 hover:border-sky2-400/60 hover:shadow-xl hover:shadow-navy-900/5 transition">
-                    <span class="absolute top-6 right-7 font-display text-4xl font-semibold text-cream-200 group-hover:text-sky2-100 transition-colors">02</span>
-                    <div class="w-14 h-14 rounded-xl bg-navy-900 text-sky2-400 flex items-center justify-center text-2xl mb-6">
-                        <i class="fas fa-hand-holding"></i>
+                    <span class="absolute top-6 right-7 font-display text-4xl font-semibold text-cream-200 group-hover:text-sky2-400 transition-colors">02</span>
+                    <div class="w-14 h-14 rounded-xl bg-navy-900 text-white flex items-center justify-center text-2xl mb-6 group-hover:text-sky2-400 transition-colors">
+                        <i class="ph ph-handshake"></i>
                     </div>
                     <h3 class="font-display text-xl font-semibold text-navy-900 mb-3">Peminjaman Mudah</h3>
                     <p class="text-sm text-navy-600/70 leading-relaxed">Proses pinjam dan kembalikan cepat dengan pencatatan digital — tinggal bawa kartu pelajar.</p>
                 </div>
 
                 <div class="reveal group relative bg-white rounded-2xl border border-cream-200 p-8 hover:border-sky2-400/60 hover:shadow-xl hover:shadow-navy-900/5 transition">
-                    <span class="absolute top-6 right-7 font-display text-4xl font-semibold text-cream-200 group-hover:text-sky2-100 transition-colors">03</span>
-                    <div class="w-14 h-14 rounded-xl bg-navy-900 text-sky2-400 flex items-center justify-center text-2xl mb-6">
-                        <i class="fas fa-couch"></i>
+                    <span class="absolute top-6 right-7 font-display text-4xl font-semibold text-cream-200 group-hover:text-sky2-400 transition-colors">03</span>
+                    <div class="w-14 h-14 rounded-xl bg-navy-900 text-white flex items-center justify-center text-2xl mb-6 group-hover:text-sky2-400 transition-colors">
+                        <i class="ph ph-couch"></i>
                     </div>
                     <h3 class="font-display text-xl font-semibold text-navy-900 mb-3">Ruang Baca Nyaman</h3>
                     <p class="text-sm text-navy-600/70 leading-relaxed">Area baca yang tenang dan sejuk untuk menemani belajar mandiri maupun tugas kelompok.</p>
                 </div>
 
                 <div class="reveal group relative bg-white rounded-2xl border border-cream-200 p-8 hover:border-sky2-400/60 hover:shadow-xl hover:shadow-navy-900/5 transition">
-                    <span class="absolute top-6 right-7 font-display text-4xl font-semibold text-cream-200 group-hover:text-sky2-100 transition-colors">04</span>
-                    <div class="w-14 h-14 rounded-xl bg-navy-900 text-sky2-400 flex items-center justify-center text-2xl mb-6">
-                        <i class="fas fa-laptop"></i>
+                    <span class="absolute top-6 right-7 font-display text-4xl font-semibold text-cream-200 group-hover:text-sky2-400 transition-colors">04</span>
+                    <div class="w-14 h-14 rounded-xl bg-navy-900 text-white flex items-center justify-center text-2xl mb-6 group-hover:text-sky2-400 transition-colors">
+                        <i class="ph ph-laptop"></i>
                     </div>
                     <h3 class="font-display text-xl font-semibold text-navy-900 mb-3">Digital &amp; E-Book</h3>
                     <p class="text-sm text-navy-600/70 leading-relaxed">Katalog online untuk mencari koleksi kapan saja, dengan e-book yang akan segera hadir.</p>
@@ -184,11 +184,11 @@
                                      class="w-44 h-44 lg:w-52 lg:h-52 rounded-full object-cover border-4 border-sky2-500/80 shadow-2xl">
                             @else
                                 <div class="w-44 h-44 lg:w-52 lg:h-52 rounded-full bg-navy-700 border-4 border-sky2-500/80 flex items-center justify-center">
-                                    <i class="fas fa-user text-sky2-400 text-6xl"></i>
+                                    <i class="ph ph-user text-sky2-400 text-6xl"></i>
                                 </div>
                             @endif
                             <div class="absolute -bottom-2 -right-2 w-12 h-12 rounded-full bg-sky2-500 text-navy-900 flex items-center justify-center text-lg shadow-lg">
-                                <i class="fas fa-quote-right"></i>
+                                <i class="ph ph-quotes"></i>
                             </div>
                         </div>
                     </div>
@@ -196,7 +196,7 @@
                     {{-- KUTIPAN --}}
                     <div class="md:col-span-2">
                         <span class="font-display text-6xl text-sky2-500/40 leading-none select-none" aria-hidden="true">&ldquo;</span>
-                        <div class="font-display text-lg lg:text-2xl text-cream-100 leading-relaxed italic -mt-4">
+                        <div class="font-display text-lg lg:text-2xl text-cream-100 leading-relaxed -mt-4">
                             {!! nl2br(e($principal->message)) !!}
                         </div>
                         <div class="mt-8 flex items-center gap-4">
@@ -226,7 +226,7 @@
                 </div>
                 <a href="{{ route('blog.index') }}" class="inline-flex items-center gap-2 text-navy-900 font-semibold hover:text-sky2-600 transition group">
                     Lihat semua
-                    <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                 </a>
             </div>
 
@@ -238,7 +238,7 @@
                             <img src="{{ $event->image_url }}" alt="{{ $event->title }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         @else
                             <div class="w-full h-full bg-navy-900 flex items-center justify-center">
-                                <i class="fas fa-calendar-alt text-sky2-500/60 text-5xl"></i>
+                                <i class="ph ph-calendar-dots text-sky2-500/60 text-5xl"></i>
                             </div>
                         @endif
 
@@ -251,7 +251,7 @@
 
                     <div class="p-6">
                         <p class="text-xs font-semibold text-navy-600/50 uppercase tracking-wider mb-2.5">
-                            <i class="far fa-clock mr-1.5 text-sky2-600"></i>{{ $event->event_date->diffForHumans() }}
+                            <i class="ph ph-clock mr-1.5 text-sky2-600"></i>{{ $event->event_date->diffForHumans() }}
                         </p>
 
                         <h3 class="font-display text-xl font-semibold text-navy-900 mb-2.5 line-clamp-2 group-hover:text-sky2-700 transition">
@@ -262,7 +262,7 @@
 
                         <a href="{{ route('blog.show', $event->slug) }}" class="inline-flex items-center gap-2 text-sm font-bold text-navy-900 hover:text-sky2-600 transition">
                             Baca selengkapnya
-                            <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                            <i class="ph ph-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
                         </a>
                     </div>
                 </article>
@@ -287,10 +287,10 @@
                 </div>
                 <div class="hidden md:flex gap-3">
                     <button class="book-prev w-11 h-11 rounded-full border border-white/20 text-white hover:bg-sky2-500 hover:text-navy-900 hover:border-sky2-500 transition" aria-label="Geser kiri">
-                        <i class="fas fa-arrow-left"></i>
+                        <i class="ph ph-arrow-left"></i>
                     </button>
                     <button class="book-next w-11 h-11 rounded-full border border-white/20 text-white hover:bg-sky2-500 hover:text-navy-900 hover:border-sky2-500 transition" aria-label="Geser kanan">
-                        <i class="fas fa-arrow-right"></i>
+                        <i class="ph ph-arrow-right"></i>
                     </button>
                 </div>
             </div>
@@ -306,12 +306,12 @@
                                     <img src="{{ asset('storage/' . $book->cover) }}" alt="Cover {{ $book->title }}" loading="lazy">
                                 @else
                                     <div class="bg-gradient-to-br from-navy-700 to-navy-900 flex items-center justify-center">
-                                        <i class="fas fa-book text-sky2-500/50 text-5xl"></i>
+                                        <i class="ph ph-book text-sky2-500/50 text-5xl"></i>
                                     </div>
                                 @endif
                                 <div class="absolute inset-0 bg-navy-950/0 group-hover:bg-navy-950/60 transition duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                                     <a href="{{ route('book.show', $book->id) }}" class="bg-sky2-500 text-navy-900 px-4 py-2 rounded-lg font-bold text-sm">
-                                        <i class="fas fa-eye mr-2"></i>Lihat Detail
+                                        <i class="ph ph-eye mr-2"></i>Lihat Detail
                                     </a>
                                 </div>
                             </div>
@@ -333,7 +333,7 @@
 
             <div class="text-center mt-12">
                 <a href="{{ route('buku.index') }}" class="inline-flex items-center gap-2 bg-sky2-500 hover:bg-sky2-400 text-navy-900 px-8 py-3.5 rounded-xl font-bold transition transform hover:scale-105 shadow-xl shadow-sky2-500/20">
-                    <i class="fas fa-book-open"></i> Lihat Semua Buku
+                    <i class="ph ph-book-open"></i> Lihat Semua Buku
                 </a>
             </div>
         </div>
@@ -355,11 +355,11 @@
             <div class="reveal flex justify-center gap-3 mb-10">
                 <a href="{{ route('home', ['chart_filter' => '7days']) }}" data-chart-filter="7days"
                    class="px-6 py-2.5 rounded-full font-semibold text-sm transition border-2 {{ ($chartFilter ?? '7days') === '7days' ? 'bg-navy-900 text-sky2-400 border-navy-900 shadow-lg' : 'bg-transparent text-navy-600 border-cream-200 hover:border-sky2-400' }}">
-                    <i class="fas fa-calendar-week mr-2"></i>7 Hari Terakhir
+                    <i class="ph ph-calendar-check mr-2"></i>7 Hari Terakhir
                 </a>
                 <a href="{{ route('home', ['chart_filter' => 'month']) }}" data-chart-filter="month"
                    class="px-6 py-2.5 rounded-full font-semibold text-sm transition border-2 {{ ($chartFilter ?? '7days') === 'month' ? 'bg-navy-900 text-sky2-400 border-navy-900 shadow-lg' : 'bg-transparent text-navy-600 border-cream-200 hover:border-sky2-400' }}">
-                    <i class="fas fa-calendar-alt mr-2"></i>30 Hari Terakhir
+                    <i class="ph ph-calendar-dots mr-2"></i>30 Hari Terakhir
                 </a>
             </div>
 
@@ -373,7 +373,7 @@
                             <p class="text-xs text-navy-600/50 mt-1">Absensi pengunjung perpustakaan</p>
                         </div>
                         <div class="w-11 h-11 rounded-xl bg-sky2-50 text-sky2-600 flex items-center justify-center text-lg">
-                            <i class="fas fa-chart-line"></i>
+                            <i class="ph ph-chart-line-up"></i>
                         </div>
                     </div>
                     <div style="position: relative; height: 300px;">
@@ -389,7 +389,7 @@
                             <p class="text-xs text-navy-600/50 mt-1">Buku yang dikembalikan per hari</p>
                         </div>
                         <div class="w-11 h-11 rounded-xl bg-sky2-50 text-sky2-600 flex items-center justify-center text-lg">
-                            <i class="fas fa-book"></i>
+                            <i class="ph ph-book"></i>
                         </div>
                     </div>
                     <div style="position: relative; height: 300px;">

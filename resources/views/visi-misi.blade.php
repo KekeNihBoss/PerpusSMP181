@@ -27,11 +27,11 @@
                 <div class="reveal bg-white rounded-2xl border border-cream-200 shadow-lg shadow-navy-900/5 p-8 lg:p-10">
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                         <h3 class="font-display text-xl font-semibold text-navy-900">
-                            <i class="fas fa-file-pdf text-sky2-600 mr-2"></i>Dokumen Visi Misi
+                            <i class="ph ph-file-pdf text-sky2-600 mr-2"></i>Dokumen Visi Misi
                         </h3>
                         <a href="{{ $visiMisi->pdf_url }}" target="_blank" rel="noopener"
                            class="inline-flex items-center justify-center bg-navy-900 text-white px-6 py-2.5 rounded-xl font-semibold hover:bg-navy-700 transition">
-                            <i class="fas fa-download mr-2 text-sky2-400"></i>Download PDF
+                            <i class="ph ph-download-simple mr-2 text-sky2-400"></i>Download PDF
                         </a>
                     </div>
 
@@ -51,7 +51,7 @@
                 {{-- NO DATA --}}
                 <div class="reveal max-w-md mx-auto text-center bg-white border border-cream-200 rounded-2xl p-12">
                     <div class="w-16 h-16 rounded-2xl bg-sky2-50 text-sky2-600 flex items-center justify-center text-2xl mx-auto mb-5">
-                        <i class="fas fa-inbox"></i>
+                        <i class="ph ph-tray"></i>
                     </div>
                     <h3 class="font-display text-xl font-semibold text-navy-900 mb-2">Belum Ada Data</h3>
                     <p class="text-navy-600/60 text-sm">Dokumen Visi Misi belum tersedia.</p>

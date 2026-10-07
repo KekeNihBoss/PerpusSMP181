@@ -8,7 +8,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -21,8 +22,8 @@
                         cream: {50:'#FAF6EF',100:'#F3EDE0',200:'#E8DFCC'}
                     },
                     fontFamily: {
-                        sans: ['"Plus Jakarta Sans"','ui-sans-serif','system-ui','sans-serif'],
-                        display: ['Fraunces','Georgia','serif']
+                        sans: ['Manrope','ui-sans-serif','system-ui','sans-serif'],
+                        display: ['"Space Grotesk"','Georgia','serif']
                     }
                 }
             }
@@ -30,7 +31,6 @@
     </script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         body {
@@ -79,6 +79,9 @@
         .reveal.is-visible { opacity: 1; transform: none; }
         @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 
+        /* ---------- Phosphor icons: 2px lebih besar secara visual, stroke konsisten ---------- */
+        .ph { font-size: 1.1em; line-height: 1; vertical-align: -0.15em; }
+
         /* ---------- Shelf ---------- */
         .shelf-card { transition: transform .3s ease, box-shadow .3s ease; }
         .shelf-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(10,20,32,.35); }
@@ -104,17 +107,17 @@
             {{-- DROPDOWN TENTANG --}}
             <div class="relative">
                 <button id="dropdown-tentang-btn" class="nav-link flex items-center transition-colors px-1 py-2">
-                    Tentang <i class="fa-solid fa-caret-down ml-2 text-xs"></i>
+                    Tentang <i class="ph ph-caret-down ml-2 text-xs"></i>
                 </button>
                 <div id="dropdown-tentang-menu" class="hidden absolute left-1/2 -translate-x-1/2 mt-3 bg-white text-navy-900 rounded-xl shadow-2xl w-56 overflow-hidden z-50 border border-cream-200">
                     <a href="{{ route('visi-misi') }}" class="flex items-center gap-3 px-5 py-3.5 hover:bg-sky2-50 transition-colors text-sm font-medium">
-                        <i class="fas fa-bullseye text-sky2-600"></i>Visi & Misi
+                        <i class="ph ph-target text-sky2-600"></i>Visi & Misi
                     </a>
                     <a href="{{ route('struktur-pengelola') }}" class="flex items-center gap-3 px-5 py-3.5 hover:bg-sky2-50 transition-colors text-sm font-medium border-t border-cream-100">
-                        <i class="fas fa-users-cog text-sky2-600"></i>Struktur Pengelola
+                        <i class="ph ph-users-three text-sky2-600"></i>Struktur Pengelola
                     </a>
                     <a href="{{ route('tata-tertib') }}" class="flex items-center gap-3 px-5 py-3.5 hover:bg-sky2-50 transition-colors text-sm font-medium border-t border-cream-100">
-                        <i class="fas fa-clipboard-list text-sky2-600"></i>Tata Tertib
+                        <i class="ph ph-clipboard-text text-sky2-600"></i>Tata Tertib
                     </a>
                 </div>
             </div>
@@ -122,18 +125,18 @@
             {{-- DROPDOWN LAINNYA --}}
             <div class="relative">
                 <button id="dropdown-lainnya-btn" class="nav-link flex items-center transition-colors px-1 py-2">
-                    Koleksi <i class="fa-solid fa-caret-down ml-2 text-xs"></i>
+                    Koleksi <i class="ph ph-caret-down ml-2 text-xs"></i>
                 </button>
                 <div id="dropdown-lainnya-menu" class="hidden absolute left-1/2 -translate-x-1/2 mt-3 bg-white text-navy-900 rounded-xl shadow-2xl w-56 overflow-hidden z-50 border border-cream-200">
                     <a href="{{ route('buku.index') }}" class="flex items-center gap-3 px-5 py-3.5 hover:bg-sky2-50 transition-colors text-sm font-medium">
-                        <i class="fas fa-book text-sky2-600"></i>Katalog Buku
+                        <i class="ph ph-book text-sky2-600"></i>Katalog Buku
                     </a>
                     <a href="{{ route('blog.index') }}" class="flex items-center gap-3 px-5 py-3.5 hover:bg-sky2-50 transition-colors text-sm font-medium border-t border-cream-100">
-                        <i class="fas fa-calendar text-sky2-600"></i>Event & Berita
+                        <i class="ph ph-calendar-blank text-sky2-600"></i>Event & Berita
                     </a>
                     <div class="border-t border-cream-100">
                         <a href="#" class="flex items-center gap-3 px-5 py-3.5 hover:bg-sky2-50 transition-colors text-sm font-medium text-navy-400">
-                            <i class="fas fa-file-pdf text-sky2-600"></i>E-Book <span class="ml-auto text-[10px] uppercase tracking-wider text-navy-200">Segera</span>
+                            <i class="ph ph-file-pdf text-sky2-600"></i>E-Book <span class="ml-auto text-[10px] uppercase tracking-wider text-navy-200">Segera</span>
                         </a>
                     </div>
                 </div>
@@ -146,7 +149,7 @@
                 Login Admin
             </a>
             <button id="menu-toggle" class="md:hidden text-xl p-2 focus:outline-none hover:bg-white/10 rounded transition">
-                <i class="fas fa-bars"></i>
+                <i class="ph ph-list"></i>
             </button>
         </div>
     </div>
@@ -157,7 +160,7 @@
 
         <div>
             <button id="dropdown-tentang-mobile-btn" class="flex items-center w-full py-2.5 text-cream-100 hover:text-sky2-400 transition">
-                Tentang <i class="fa-solid fa-caret-down ml-2 text-xs"></i>
+                Tentang <i class="ph ph-caret-down ml-2 text-xs"></i>
             </button>
             <div id="dropdown-tentang-mobile" class="hidden pl-4 space-y-1 mt-1 pb-2">
                 <a href="{{ route('visi-misi') }}" class="block py-2 text-sm text-cream-100/80 hover:text-sky2-400 transition">Visi & Misi</a>
@@ -168,7 +171,7 @@
 
         <div>
             <button id="dropdown-lainnya-mobile-btn" class="flex items-center w-full py-2.5 text-cream-100 hover:text-sky2-400 transition">
-                Koleksi <i class="fa-solid fa-caret-down ml-2 text-xs"></i>
+                Koleksi <i class="ph ph-caret-down ml-2 text-xs"></i>
             </button>
             <div id="dropdown-lainnya-mobile" class="hidden pl-4 space-y-1 mt-1 pb-2">
                 <a href="{{ route('buku.index') }}" class="block py-2 text-sm text-cream-100/80 hover:text-sky2-400 transition">Katalog Buku</a>
@@ -204,10 +207,10 @@
             </p>
             <div class="flex gap-3">
                 <a href="#" aria-label="Instagram" class="w-10 h-10 rounded-lg bg-white/5 hover:bg-sky2-500 hover:text-navy-950 flex items-center justify-center transition-colors">
-                    <i class="fab fa-instagram text-lg"></i>
+                    <i class="ph ph-instagram-logo text-lg"></i>
                 </a>
                 <a href="#" aria-label="YouTube" class="w-10 h-10 rounded-lg bg-white/5 hover:bg-sky2-500 hover:text-navy-950 flex items-center justify-center transition-colors">
-                    <i class="fab fa-youtube text-lg"></i>
+                    <i class="ph ph-youtube-logo text-lg"></i>
                 </a>
             </div>
         </div>
@@ -233,7 +236,7 @@
             </div>
             <p class="mt-4 text-cream-100/60 text-sm leading-relaxed">
                 Jl. Mesjid I Karet Tengsin No.5, Karet Tengsin, Tanah Abang, Jakarta Pusat<br>
-                <span class="text-cream-100/80"><i class="fas fa-phone text-sky2-400 mr-2 text-xs"></i>021-5738060</span>
+                <span class="text-cream-100/80"><i class="ph ph-phone text-sky2-400 mr-2 text-xs"></i>021-5738060</span>
             </p>
         </div>
     </div>
@@ -396,7 +399,7 @@ if (document.querySelector('.book-shelf')) {
 // CHART DEFAULTS
 // ========================================
 if (window.Chart) {
-    Chart.defaults.font.family = "'Plus Jakarta Sans', sans-serif";
+    Chart.defaults.font.family = "'Manrope', sans-serif";
     Chart.defaults.color = '#1F3450';
 }
 
@@ -501,25 +504,29 @@ if (ctxPengembalian) {
 // ========================================
 // FILTER GRAFIK TANPA RELOAD (AJAX)
 // ========================================
+const CHART_API = '{{ parse_url(url('api/chart-data'), PHP_URL_PATH) }}';
+
 document.querySelectorAll('[data-chart-filter]').forEach(btn => {
     btn.addEventListener('click', async e => {
         e.preventDefault();
         const filter = btn.dataset.chartFilter;
 
-        document.querySelectorAll('[data-chart-filter]').forEach(b => {
-            const active = b === btn;
-            b.classList.toggle('bg-navy-900', active);
-            b.classList.toggle('text-sky2-400', active);
-            b.classList.toggle('border-navy-900', active);
-            b.classList.toggle('shadow-lg', active);
-            b.classList.toggle('bg-transparent', !active);
-            b.classList.toggle('text-navy-600', !active);
-            b.classList.toggle('border-cream-200', !active);
-            b.classList.toggle('hover:border-sky2-400', !active);
-        });
+        const setActive = (el, active) => {
+            el.classList.toggle('bg-navy-900', active);
+            el.classList.toggle('text-sky2-400', active);
+            el.classList.toggle('border-navy-900', active);
+            el.classList.toggle('shadow-lg', active);
+            el.classList.toggle('bg-transparent', !active);
+            el.classList.toggle('text-navy-600', !active);
+            el.classList.toggle('border-cream-200', !active);
+            el.classList.toggle('hover:border-sky2-400', !active);
+        };
+        const prevActive = document.querySelector('[data-chart-filter].bg-navy-900');
+        document.querySelectorAll('[data-chart-filter]').forEach(b => setActive(b, b === btn));
 
         try {
-            const res = await fetch(`{{ url('api/chart-data') }}?filter=${filter}`);
+            const res = await fetch(`${CHART_API}?filter=${filter}`, { headers: { 'Accept': 'application/json' } });
+            if (!res.ok) throw new Error(res.status);
             const data = await res.json();
 
             if (absensiChart) {
@@ -535,7 +542,9 @@ document.querySelectorAll('[data-chart-filter]').forEach(btn => {
 
             history.replaceState(null, '', filter === 'month' ? '?chart_filter=month' : '?chart_filter=7days');
         } catch (err) {
-            window.location.href = btn.href;
+            // fetch gagal: kembalikan status tombol, jangan reload halaman
+            console.error('Gagal memuat data grafik:', err);
+            document.querySelectorAll('[data-chart-filter]').forEach(b => setActive(b, b === prevActive));
         }
     });
 });

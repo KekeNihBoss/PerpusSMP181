@@ -17,10 +17,10 @@
             {{-- TOGGLE VIEW --}}
             <div class="flex gap-2">
                 <a href="?view=grid" class="px-5 py-2 rounded-full font-semibold text-sm transition border-2 {{ $view=='grid' ? 'bg-navy-900 text-sky2-400 border-navy-900' : 'bg-transparent text-navy-600 border-cream-200 hover:border-sky2-400' }}">
-                    <i class="fas fa-th-large mr-1.5"></i>Grid
+                    <i class="ph ph-squares-four mr-1.5"></i>Grid
                 </a>
                 <a href="?view=list" class="px-5 py-2 rounded-full font-semibold text-sm transition border-2 {{ $view=='list' ? 'bg-navy-900 text-sky2-400 border-navy-900' : 'bg-transparent text-navy-600 border-cream-200 hover:border-sky2-400' }}">
-                    <i class="fas fa-list mr-1.5"></i>List
+                    <i class="ph ph-list-bullets mr-1.5"></i>List
                 </a>
             </div>
         </div>
@@ -29,7 +29,7 @@
         <form method="GET" class="reveal flex flex-col sm:flex-row gap-3 mb-10 bg-white border border-cream-200 rounded-2xl p-4 shadow-sm">
             <input type="hidden" name="view" value="{{ $view }}">
             <div class="relative flex-1">
-                <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-navy-200"></i>
+                <i class="ph ph-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-navy-200"></i>
                 <input type="text" name="search" value="{{ request('search') }}"
                     placeholder="Cari judul buku..."
                     class="w-full border border-cream-200 rounded-xl pl-11 pr-4 py-2.5 bg-cream-50/50 focus:bg-white focus:border-sky2-400 focus:ring-2 focus:ring-sky2-100 outline-none transition">
@@ -63,7 +63,7 @@
                                      class="group-hover:scale-105 transition duration-500">
                             @else
                                 <div class="bg-gradient-to-br from-navy-700 to-navy-900 flex items-center justify-center">
-                                    <i class="fas fa-book text-sky2-400/60 text-5xl"></i>
+                                    <i class="ph ph-book text-sky2-400/60 text-5xl"></i>
                                 </div>
                             @endif
                         </div>
@@ -73,7 +73,7 @@
                             <p class="text-xs text-navy-600/60 mb-2.5">{{ $item->kategori }}</p>
                             @if($item->nomorrak)
                                 <span class="inline-flex items-center gap-1 px-2 py-0.5 bg-sky2-50 border border-sky2-100 text-sky2-700 text-[11px] font-semibold rounded-full">
-                                    <i class="fas fa-map-marker-alt text-[9px]"></i>Rak {{ $item->nomorrak }}
+                                    <i class="ph ph-map-pin text-[9px]"></i>Rak {{ $item->nomorrak }}
                                 </span>
                             @endif
                         </div>
@@ -94,7 +94,7 @@
                                 class="w-14 h-20 object-cover rounded-lg shadow-md">
                         @else
                             <div class="w-14 h-20 rounded-lg bg-navy-900 flex items-center justify-center shadow-md">
-                                <i class="fas fa-book text-sky2-400/60"></i>
+                                <i class="ph ph-book text-sky2-400/60"></i>
                             </div>
                         @endif
 
@@ -105,10 +105,10 @@
 
                         @if($item->nomorrak)
                             <span class="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 bg-sky2-50 border border-sky2-100 text-sky2-700 text-xs font-semibold rounded-full">
-                                <i class="fas fa-map-marker-alt text-[10px]"></i>Rak {{ $item->nomorrak }}
+                                <i class="ph ph-map-pin text-[10px]"></i>Rak {{ $item->nomorrak }}
                             </span>
                         @endif
-                        <i class="fas fa-chevron-right text-navy-200"></i>
+                        <i class="ph ph-caret-right text-navy-200"></i>
                     </a>
                 @endforeach
             </div>

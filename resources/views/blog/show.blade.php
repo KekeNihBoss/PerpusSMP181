@@ -10,9 +10,9 @@
         <nav class="reveal mb-8">
             <ol class="flex items-center space-x-2 text-sm text-navy-600/60">
                 <li><a href="{{ route('home') }}" class="hover:text-sky2-600 transition">Beranda</a></li>
-                <li><i class="fas fa-chevron-right text-[10px]"></i></li>
+                <li><i class="ph ph-caret-right text-[10px]"></i></li>
                 <li><a href="{{ route('blog.index') }}" class="hover:text-sky2-600 transition">Event &amp; Berita</a></li>
-                <li><i class="fas fa-chevron-right text-[10px]"></i></li>
+                <li><i class="ph ph-caret-right text-[10px]"></i></li>
                 <li class="text-navy-900 font-semibold truncate max-w-[200px] md:max-w-md">{{ $event->title }}</li>
             </ol>
         </nav>
@@ -32,12 +32,12 @@
                 </h1>
 
                 <div class="flex items-center flex-wrap gap-x-5 gap-y-2 text-sm text-navy-600/60 pb-8 border-b border-cream-200">
-                    <span><i class="far fa-calendar mr-2 text-sky2-600"></i>{{ $event->event_date->format('d F Y') }}</span>
+                    <span><i class="ph ph-calendar-blank mr-2 text-sky2-600"></i>{{ $event->event_date->format('d F Y') }}</span>
                     @if($event->author)
-                        <span><i class="far fa-user mr-2 text-sky2-600"></i>{{ $event->author }}</span>
+                        <span><i class="ph ph-user mr-2 text-sky2-600"></i>{{ $event->author }}</span>
                     @endif
-                    <span><i class="far fa-eye mr-2 text-sky2-600"></i>{{ $event->views }} views</span>
-                    <span><i class="far fa-clock mr-2 text-sky2-600"></i>{{ $event->event_date->diffForHumans() }}</span>
+                    <span><i class="ph ph-eye mr-2 text-sky2-600"></i>{{ $event->views }} views</span>
+                    <span><i class="ph ph-clock mr-2 text-sky2-600"></i>{{ $event->event_date->diffForHumans() }}</span>
                 </div>
             </header>
 
@@ -68,17 +68,17 @@
                     <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(route('blog.show', $event->slug)) }}"
                        target="_blank" rel="noopener"
                        class="bg-navy-900 text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-navy-700 transition">
-                        <i class="fab fa-facebook-f mr-2 text-sky2-400"></i>Facebook
+                        <i class="ph ph-facebook-logo mr-2 text-sky2-400"></i>Facebook
                     </a>
                     <a href="https://twitter.com/intent/tweet?url={{ urlencode(route('blog.show', $event->slug)) }}&text={{ urlencode($event->title) }}"
                        target="_blank" rel="noopener"
                        class="bg-navy-900 text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-navy-700 transition">
-                        <i class="fab fa-twitter mr-2 text-sky2-400"></i>Twitter
+                        <i class="ph ph-twitter-logo mr-2 text-sky2-400"></i>Twitter
                     </a>
                     <a href="https://wa.me/?text={{ urlencode($event->title . ' - ' . route('blog.show', $event->slug)) }}"
                        target="_blank" rel="noopener"
                        class="bg-navy-900 text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-navy-700 transition">
-                        <i class="fab fa-whatsapp mr-2 text-sky2-400"></i>WhatsApp
+                        <i class="ph ph-whatsapp-logo mr-2 text-sky2-400"></i>WhatsApp
                     </a>
                 </div>
             </div>
@@ -99,7 +99,7 @@
                                                  class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                                         @else
                                             <div class="w-full h-full bg-navy-900 flex items-center justify-center">
-                                                <i class="fas fa-image text-sky2-400/50 text-3xl"></i>
+                                                <i class="ph ph-image text-sky2-400/50 text-3xl"></i>
                                             </div>
                                         @endif
                                     </div>
@@ -123,7 +123,7 @@
             <div class="text-center">
                 <a href="{{ route('blog.index') }}"
                    class="inline-flex items-center gap-2 bg-white border-2 border-cream-200 hover:border-sky2-400 text-navy-900 px-8 py-3 rounded-xl font-semibold transition">
-                    <i class="fas fa-arrow-left"></i>Kembali ke Event &amp; Berita
+                    <i class="ph ph-arrow-left"></i>Kembali ke Event &amp; Berita
                 </a>
             </div>
 

@@ -27,7 +27,7 @@
                                  class="w-36 h-36 rounded-full object-cover ring-4 ring-sky2-400/70 shadow-2xl relative">
                         @else
                             <div class="w-36 h-36 rounded-full bg-navy-700 ring-4 ring-sky2-400/70 flex items-center justify-center relative">
-                                <i class="fas fa-user text-sky2-400/70 text-5xl"></i>
+                                <i class="ph ph-user text-sky2-400/70 text-5xl"></i>
                             </div>
                         @endif
                     </div>
@@ -49,7 +49,7 @@
             {{-- NO DATA --}}
             <div class="reveal max-w-md mx-auto text-center bg-white border border-cream-200 rounded-2xl p-12">
                 <div class="w-16 h-16 rounded-2xl bg-sky2-50 text-sky2-600 flex items-center justify-center text-2xl mx-auto mb-5">
-                    <i class="fas fa-users"></i>
+                    <i class="ph ph-users"></i>
                 </div>
                 <h3 class="font-display text-xl font-semibold text-navy-900 mb-2">Belum Ada Data</h3>
                 <p class="text-navy-600/60 text-sm">Data struktur pengelola belum tersedia.</p>
